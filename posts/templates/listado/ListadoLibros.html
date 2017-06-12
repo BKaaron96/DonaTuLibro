@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Listado Libros IS2</title>
+    <link rel="shortcut icon" href="../Imagenes/favicon.ico" type="image/vnd.microsoft.icon">
+    <script type="text/javascript" src="../javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascript/jquery-ui.min.js"></script>
+<!--    <script type="text/jscript" src="../Javascript/formularioPensionListadoPostulante.js"></script>
+-->    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../Estilos/materialize.min.css" rel="stylesheet" />
+    <link href="../Estilos/font.css" rel="stylesheet" />
+    <link href="../Estilos/custom.css" rel="stylesheet" />
+
+    <link href="../Estilos/stylePension.css" rel="stylesheet" />
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class=" brand-up col s10">
+                    <div class="row">
+                        <div class="col s4">
+                            <a href="#!">
+                                <img src="../Imagenes/logo-up.png" class="responsive-img" alt="Universidad del Pacífico - Pensión Online" />
+                            </a>
+                        </div>
+                        <div class="col s4">
+                            <h1>
+                                <span>Sistema de <br />Pensiones</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-up col s2">
+                    <p id="lbluser" runat="server"></p>
+                    <a href="#">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+<%--Menu--%>
+    <nav id="up-main-menu">
+        <div class="container">
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li>
+                        <a id="A1" href="../Forms/FormularioListadoPostulante.aspx">
+                            Panel de Búsqueda
+                        </a>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Forms/FormularioListaMenuAdmin.aspx">Menú Administrativo</asp:HyperLink>
+                    </li>
+                </ul>
+                <%--<ul class='right'>
+                    <li>
+                        <input type="hidden" id="hdfapplication" name="hdfapplication" value="0" />
+                        <button id="btnimprimir" name="btnImprimir" class="btn up-btn btn-small" type="submit" name="action">
+                            <span class="tiny material-icons left">print</span> Imprimir
+                          </button>
+                    </li>
+                </ul>--%>
+            </div>
+        </div>
+    </nav>
+
+    <div name="container" class="container">
+    
+        <div class="row title-search">
+            <h2>
+            Buscar usuarios
+            </h2>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input name="ctl00$mainContentZone$txtNombre" type="text" id="ctl00_mainContentZone_txtNombre" placeholder="Apellidos">
+                <label for="ctl00_mainContentZone_txtApellidos" id="Label2" runat="server">Apellidos</label>
+            </div>
+
+            <div class="input-field col s4">
+<!--                <select placeholder="Analista de pensiones" id="selAnalistaPensiones" class="default-browser">
+                </select>
+-->
+                <div class="select-wrapper default-browser"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-063d33a7-b045-0f0d-9593-1caccf379252" value=""><ul id="select-options-063d33a7-b045-0f0d-9593-1caccf379252" class="dropdown-content select-dropdown" style="width: 373px; position: absolute; top: 0px; left: 0px; opacity: 1; overflow: hidden; display: none;"><li class=""><span></span></li><li class=""><span>Salinas Cueva Gissella Rosa</span></li><li class=""><span>Bravo Perez Carmen Teresa</span></li><li class=""><span>Pagador Vinatea Claudia Beatriz</span></li><li class=""><span>Boluarte Aguilar Linda Andrea</span></li><li class=""><span>Romani Navarro Maria Del Pilar</span></li><li class=""><span>Baldeon Nongrados De Alva Rosario Esther</span></li></ul><select placeholder="Analista de pensiones" id="selAnalistaPensiones" class="default-browser initialized">
+                <option value=""></option><option value="SALINAS_GR">Salinas Cueva Gissella Rosa</option><option value="BRAVO_CT">Bravo Perez Carmen Teresa</option><option value="PAGADOR_CB">Pagador Vinatea Claudia Beatriz</option><option value="LA.BOLUARTEA">Boluarte Aguilar Linda Andrea</option><option value="ROMANI_MP">Romani Navarro Maria Del Pilar</option><option value="BALDEON_RE">Baldeon Nongrados De Alva Rosario Esther</option></select></div>
+
+                <label for="selAnalistaPensiones">Analista Pensiones</label>
+            </div>
+            <div class="input-field col s4">
+                <select placeholder="Analista de pensiones" id="selFechaPublicacion" name="selFechaPublicacion" class="default-browser">
+                </select>
+                <label for="selFechaPublicacion">Fecha Publicación</label>
+            </div>
+            <div class="input-field col s12 right-align">
+                <input type="button" value="Buscar" name="btnBuscar" class="btn-up-interna" id="btnBuscar" />
+               <!-- <button id="btnBuscar" name="btnBuscar" class="btn up-btn btn-medium" type="button">
+                    <span class="material-icons">search</span> Buscar
+                </button>-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <table id="tblPostulante" class="table highlight centered table-up">
+                    <thead>
+                        <tr>
+                            <th><b>Postulante</b></th> 
+                            <th><b>Fecha publicación resultados</b></th>  
+                            <th><b>Gestión de documentos</b></th>
+                            <th><b>Solicitudes</b></th><th><b>Hoja de Estudio</b></th>
+                            <th><b>Activar</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Abanto Arana, Milton Manuel Jesús</td> 
+                            <td>14/02/2017</td>  <td><a href="FormularioDocumento.aspx?idApp=169172">Ir a documentos</a></td>
+                            <td><a href="FormularioPensionBusqueda.aspx?appid=169172&amp;redid=MR.AbantoC"> Ver ficha</a></td>
+                            <td><a href="frmReporteHojaVida.aspx?applicationid=169172">Hoja Impresa</a></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Abanto Arana, Milton Manuel Jesús</td> 
+                            <td>14/02/2017</td>  <td><a href="FormularioDocumento.aspx?idApp=169172">Ir a documentos</a></td>
+                            <td><a href="FormularioPensionBusqueda.aspx?appid=169172&amp;redid=MR.AbantoC"> Ver ficha</a></td>
+                            <td><a href="frmReporteHojaVida.aspx?applicationid=169172">Hoja Impresa</a></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Abanto Arana, Milton Manuel Jesús</td> 
+                            <td>14/02/2017</td>  <td><a href="FormularioDocumento.aspx?idApp=169172">Ir a documentos</a></td>
+                            <td><a href="FormularioPensionBusqueda.aspx?appid=169172&amp;redid=MR.AbantoC"> Ver ficha</a></td>
+                            <td><a href="frmReporteHojaVida.aspx?applicationid=169172">Hoja Impresa</a></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
