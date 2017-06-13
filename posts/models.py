@@ -12,7 +12,6 @@ class Registro(models.Model):
    dni=models.CharField(max_length=9)
    correo = models.EmailField(max_length=254)
    usuario = models.CharField(max_length=20)
-   contraseña1 = models.CharField(max_length=20)
-   contraseña2 = models.CharField(max_length=20)
+   contra = models.CharField(max_length=20)
    tipodeusuario = models.CharField(max_length=20)
    colegio = models.CharField(max_length=20)

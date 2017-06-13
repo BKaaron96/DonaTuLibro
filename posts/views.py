@@ -15,21 +15,21 @@ from django.contrib.auth import login as login_django
 # Create your views here.
 
 def login(request):
-    message= None
-    if request.method == 'POST': #No estan enviando el formulario
+    #message= None
+    if request.method == 'POST': #Nos estan enviando el formulario
         usuario_post=request.POST['usuario']
         contraseña_post=request.POST['contraseña']
-        user = authenticate( usuario = usuario_post , contraseña = contraseña_post)
-        if user is not None:
-         login_django( request, user)
-         return redirect('dona:inicio')
-       else:
-         message="Usuario o contraseña incorrectos"
+        user = authenticate( usuario = usuario_post , contrasena = contraseña_post)
+        #if user is not None:
+         #login_django( request, user)
+         #return redirect('dona:inicio')
+       #else:
+        #  message="Usuario o contraseña incorrectos"
 
     form=LoginForm()
     context={
-    'form' : form ,
-    'message' : message
+    'form' : form
+    #'message' : message
     }
     return render(request,'registro/login.html',context)
 
@@ -45,9 +45,9 @@ def registro(request):
             telefono=form.cleaned_data['telefono'],
             dni=form.cleaned_data['dni'],
             usuario=form.cleaned_data['usuario'],
-            contra=form.cleaned_data['contraseña1'],
-            correo=form.cleaned_data['correo']
-            tipo_de_usuario=form.cleaned_data['tipodeusuario'],
+            contra=form.cleaned_data['contra1'],
+            correo=form.cleaned_data['correo'],
+            tipou=form.cleaned_data['tipodeusuario'],
             colegios=form.cleaned_data['colegio'],
             )
             return HttpResponseRedirect('/posts/registro/registroexitoso/')

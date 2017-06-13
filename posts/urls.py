@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .import views
+from . import views
 from django.contrib.auth.views import login
 app_name='dona'
 urlpatterns = [

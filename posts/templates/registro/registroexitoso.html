@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Registro{% endblock %}
-{% block head %}Registro{% endblock %}
+{% block title %}Registro Exitoso{% endblock %}
+{% block head %}Registro Exitoso{% endblock %}
 {% block content %}
 
 <html lang="en">
@@ -27,10 +27,4 @@
 </div>
 </nav>
 </header>
-<h2>Registro</h2>
-   <form action="/posts/registro/" method="post">{% csrf_token %}
-     {{form.as_p}}   <input type="submit" value="Registro" />
-
-   </form>
-
-{% endblock %}
+<h1> Registrado con Éxito </h1>
